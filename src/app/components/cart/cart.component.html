@@ -1,0 +1,20 @@
+<h2>Display products</h2>
+<div class="card float-end border border-0  padding-10" style="width:250px;"><app-shopping [carts]="carts" [cartTotal]="totalPrice"></app-shopping></div>
+<div class="row border border-0">
+  <div class="col">
+    <div class="row" *ngFor="let item of cartItems">
+        <div class="col">
+            <div class="card border border-0">
+                <div class="header">
+                    <h3>{{item.icon}}&nbsp;{{item.productName}}</h3>
+                </div>
+                <div class="body">
+                  <p>Price:${{item.price}}</p>
+                  <button class="btn btn-primary" (click)="addToCart(item)">Add to cart</button> &nbsp;
+                  <button class="btn btn-primary" (click)="removeItemFromCart(item)">Remove from cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
