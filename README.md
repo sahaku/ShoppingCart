@@ -1,4 +1,4 @@
-# Ang19Demo
+# An Angular library to create shopping carts for your e-commerce applications
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
 
