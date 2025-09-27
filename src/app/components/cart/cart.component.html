@@ -1,5 +1,5 @@
 <h2>Display products</h2>
-<div class="card float-end border border-0  padding-10" style="width:250px;"><app-shopping [carts]="carts" [cartTotal]="totalPrice"></app-shopping></div>
+<div class="card float-end border border-0  padding-10" style="width:250px;"><app-shopping [carts]="carts" [cartTotal]="totalPrice" (buyItems)="handleCheckedOut($event)"></app-shopping></div>
 <div class="row border border-0">
   <div class="col">
     <div class="row" *ngFor="let item of cartItems">

@@ -1,7 +1,7 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, Input, signal, output } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { ShoppingCart } from '../../model/product';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-shopping',
@@ -13,10 +13,15 @@ export class ShoppingComponent {
   @Input() carts = signal<ShoppingCart[]>([]);
   @Input() cartTotal = signal<number>(0);
   showDetails: boolean = false;
+  buyItems = output<ShoppingCart[]>();
   constructor(private service: CartService) {
 
   }
   toggleDetails() {
     this.showDetails = !this.showDetails;
+  }
+  checkedOut(items: any) {
+    let checkedOutItems = items();
+    this.buyItems.emit(checkedOutItems);
   }
 }

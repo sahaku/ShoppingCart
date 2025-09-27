@@ -34,6 +34,14 @@ export class CartComponent implements OnInit{
     this.totalPrice.set(this.cartTotal);
     this.carts.set(this.service.getCartItems());
   }
+
+  handleCheckedOut(items: ShoppingCart[]) {
+    console.log('Checked out items:', items);
+    alert("Ordered are successfully placed");
+    this.service.clearCart();
+    this.totalPrice.set(0);
+    this.carts.set([]);
+  }
   get cartTotal() {
     return this.carts().reduce((total, cart)=> total + ((cart.item?.price ?? 0) * (cart.quantity ?? 0)), 0);
     //return this.carts().reduce((total, cart) => total + (cart.item?.price ?? 0) * (cart.quantity ?? 0), 0);
